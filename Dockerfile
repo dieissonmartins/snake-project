@@ -1,15 +1,17 @@
-FROM python:3.8
+FROM python:3.8.3-alpine
 
-ADD main.py .
+RUN pip install --upgrade pip
 
-RUN pip3 install --upgrade pip
-
-# Arguments defined in docker-compose.yml
 ARG user
 ARG uid
 
-RUN pip3 install --upgrade pip
+#RUN adduser -D $user
+USER $user
 
-RUN pip install requests beutifulsoup4
+WORKDIR /home/$user
+
+ENV PATH="/home/$user/.local/bin:${PATH}"
+
+COPY --chown=myuser:$user . .
 
 CMD [ "python","./main.py" ]
