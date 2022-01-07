@@ -1,6 +1,7 @@
 # Python3 program to
 
 import datetime
+from scripts.math import Math
 
 
 class Main:
@@ -12,6 +13,10 @@ class Main:
         print("running script---------")
         print("-----------------------")
         print(self.today.strftime("%Y-%m-%d"))
+
+        m = Math()
+        sum_value = m.sum_values()
+        print("SUM: ", sum_value)
 
         self.input = input("inform date period:\n")
 
