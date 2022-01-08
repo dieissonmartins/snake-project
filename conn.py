@@ -1,15 +1,29 @@
+import os
 import mysql.connector
+from dotenv import load_dotenv
+import logging
 
-con = mysql.connector.connect(host='localhost', database='db_name', user='root', password='')
+load_dotenv()
 
-if con.is_nnected():
-    db_info = con.get_server_info()
+host = os.getenv("DB_HOST")
+database = os.getenv("DB_DATABASE")
+user = os.getenv("DB_USERNAME")
+password = os.getenv("DB_PASSWORD")
 
-    print("connection TRUE - ", db_info)
+try:
+    con = mysql.connector.connect(host=host, database=database, user=user, password=password)
 
-    cursor = con.cursor()
+    if con.is_connected():
+        db_info = con.get_server_info()
 
-    cursor.execute("select database();")
-    row = cursor.fetchone()
+        print('connection TRUE - ', db_info)
 
-    print("connected to the database", row)
+        cursor = con.cursor()
+
+        cursor.execute("select database();")
+        row = cursor.fetchone()
+
+        logging.info("connected to the database", row)
+
+except:
+    logging.error("not connected to the database")

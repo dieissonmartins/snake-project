@@ -1,14 +1,15 @@
 FROM python:3.8.3-alpine
 
-RUN pip install --upgrade pip
-RUN pip install mysql-connector-python
-
+WORKDIR /usr/src/app
 
 ARG user
 ARG uid
 
-#RUN adduser -D $user
 USER $user
+
+RUN pip install --upgrade pip
+RUN pip install mysql-connector-python
+RUN pip install python-dotenv
 
 WORKDIR /home/$user
 
