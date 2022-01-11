@@ -1,7 +1,6 @@
 # Python3 program to
 
 import datetime
-from scripts.math import Math
 import logging
 import sys
 from utils.conn import con
@@ -23,12 +22,23 @@ class index:
         self.data_base()
 
         # get params args
+        class_name = "Main"
         script_name = sys.argv[1]
 
-        teste = 2;
+        # __import__ method used
+        # to fetch module
+        module = __import__("scripts." + script_name + ".main")
+
+        script = import_module(module)
+
+        # getting attribute by
+        # getattr() method
+        #script = getattr(module, class_name)
+        script.run()
 
     def data_base(self):
         self.con = con
+
 
 
 # object instantiation
