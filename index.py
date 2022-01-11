@@ -5,6 +5,7 @@ from scripts.math import Math
 import logging
 import sys
 from utils.conn import con
+from sys import argv
 
 
 class index:
@@ -19,7 +20,12 @@ class index:
         logging.info(" ", self.today.strftime("%Y-%m-%d"))
 
         # connect database
-        #self.data_base()
+        self.data_base()
+
+        # get params args
+        script_name = sys.argv[1]
+
+        teste = 2;
 
     def data_base(self):
         self.con = con
