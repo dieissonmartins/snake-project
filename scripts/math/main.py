@@ -1,7 +1,7 @@
-class Math:
+class Main:
     sum = 0
 
-    def sum_values(self):
+    def run(self):
         self.sum = (6 + 4)
 
         return self.sum
