@@ -43,7 +43,7 @@ check_end = cpf.endswith('777')
 print(check_end)
 
 # counter words
-string_word = 'in publishing and graphic design, 12 Lorem ipsum is a placeholder text commonly 17 to demonstrate ipsum.'
+string_word = 'in publishing and graphic design, 12 Lorem ipsum is placeholder text commonly 17 to demonstrate ipsum. '
 print(string_word)
 
 count_words_ipsum = string_word.count('ipsum')
@@ -58,3 +58,24 @@ print(first_letter_up)
 # check exits numbers by string
 check_exists_number = string_word.isdigit()
 print(check_exists_number)
+
+# all capitals
+string_word_upper = string_word.upper()
+print(string_word_upper)
+
+# all little
+string_word_lower = string_word.lower()
+print(string_word_lower)
+
+# get value by position string
+find_value_string = string_word.find('design')
+print(find_value_string)
+
+# remove spaces by one string
+string_removed_spaces = string_word.strip()
+print(string_removed_spaces)
+
+# desmenbrer string to array
+string_word_by_array = string_word.split(' ')
+print(string_word_by_array)
+
